@@ -61,12 +61,7 @@ func (s *Salary ) explode_salary( salary Salary ){
 	s.Monthly_tax = s.Yearly_tax / 12.9599
 	s.Estimated_net = s.Bruto_year/ 12 - s.Monthly_tax
 
-
 }
-
-
-
-
 
 // end point code
 
@@ -100,7 +95,7 @@ func salaryHandler (w http.ResponseWriter, r *http.Request){
 			log.Fatal(err)
 		}
 
-		rows, err := db.Query( "SELECT * FROM salary")
+		rows, err := db.Query( "select * from salary")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -128,7 +123,7 @@ func salaryHandler (w http.ResponseWriter, r *http.Request){
 
 		fmt.Printf("%+v\n",salaries)
 
-		t, err := template.ParseFiles( "./Templates/endpoints/salary.t")
+		t, err := template.ParseFiles( "./endpoints/salary/salary.t")
 		err = t.Execute(w, salaries)
 		if err !=  nil{
 			fmt.Println(err)
