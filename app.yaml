@@ -1,0 +1,16 @@
+runtime: go
+api_version: go1
+env: flex
+
+handlers:
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+- url: /.*
+  script: _go_app
+
+env_variables:
+  CLOUDSQL_PROXY: 1
+  CLOUDSQL_CONNECTION_NAME: informatiestroom:europe-west1:irdevdb
+  CLOUDSQL_USER: mntbudget
+  CLOUDSQL_PASSWORD: 'notemptymntbudget24!'

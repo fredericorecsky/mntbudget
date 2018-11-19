@@ -3,9 +3,10 @@ package main
 import (
 	"log"
 	"net/http"
-	 _ "./endpoints/salary"
+	 _ "mntbudget/endpoints/salary"
 )
 
 func main() {
-	log.Fatal(http.ListenAndServe( ":8080", nil ))
+	// if google cloud uses 8080
+	log.Fatal(http.ListenAndServe( ":8081", nil ))
 }
